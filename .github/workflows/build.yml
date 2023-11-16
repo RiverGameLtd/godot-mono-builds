@@ -54,7 +54,7 @@ jobs:
         if: matrix.target == 'x86_64'
         run: |
           cd /home/runner
-          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
+          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2 -k
           tar xf x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
           rm -f x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
           cd x86_64-godot-linux-gnu_sdk-buildroot
@@ -67,7 +67,7 @@ jobs:
         if: matrix.target == 'x86'
         run: |
           cd /home/runner
-          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/i686-godot-linux-gnu_sdk-buildroot.tar.bz2
+          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/i686-godot-linux-gnu_sdk-buildroot.tar.bz2 -k
           tar xf i686-godot-linux-gnu_sdk-buildroot.tar.bz2
           rm -f i686-godot-linux-gnu_sdk-buildroot.tar.bz2
           cd i686-godot-linux-gnu_sdk-buildroot
@@ -596,7 +596,7 @@ jobs:
         if: steps.cache_llvm.outputs.cache-hit != 'true' && runner.os == 'Linux'
         run: |
           cd /home/runner
-          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
+          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2 -k
           tar xf x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
           rm -f x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
           cd x86_64-godot-linux-gnu_sdk-buildroot
@@ -681,7 +681,7 @@ jobs:
       - name: Install Linux SDK (x86_64)
         run: |
           cd /home/runner
-          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
+          curl -LO https://downloads.tuxfamily.org/godotengine/toolchains/linux/2021-02-11/x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2 -k
           tar xf x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
           rm -f x86_64-godot-linux-gnu_sdk-buildroot.tar.bz2
           cd x86_64-godot-linux-gnu_sdk-buildroot
