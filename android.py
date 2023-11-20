@@ -201,7 +201,8 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
         '--enable-mmap=yes',
         '--enable-munmap=6',
         '--enable-single-obj-compilation',
-        '--disable-thread-local-alloc'
+        '--disable-thread-local-alloc',
+        '--with-overridable-allocators'
     ]
 
     env['_android-%s_AR' % target] = AR
