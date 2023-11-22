@@ -10,7 +10,7 @@ from os_utils import *
 import runtime
 
 
-DEFAULT_NDK_VERSION = '23.2.8568313'
+DEFAULT_NDK_VERSION = '19.0.5232133'
 DEFAULT_CMAKE_VERSION = '3.10.2.4988404'
 targets = ['armv7', 'arm64v8', 'x86', 'x86_64']
 
@@ -19,10 +19,10 @@ def get_min_api_version(target) -> str:
     # Minimum API version should be in sync with Godot's platform/android/detect.py.
     # Note: The minimum API version for arm64v8 and x86_64 is '21'
     min_versions = {
-        'armv7': '21',
-        'arm64v8': '21',
-        'x86': '21',
-        'x86_64': '21',
+        'armv7': '19',
+        'arm64v8': '19',
+        'x86': '19',
+        'x86_64': '19',
     }
     return min_versions[target]
 
