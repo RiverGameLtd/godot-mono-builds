@@ -232,9 +232,31 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
 
 
 def strip_libs(opts: AndroidOpts, product: str, target: str):
+    if target == "armv7":
+        target_triple = "armv7a-linux-androideabi"
+        bin_utils = "arm-linux-androideabi"
+    elif target == "arm64v8":
+        target_triple = "aarch64-linux-android"
+        bin_utils = target_triple
+    elif target == "x86":
+        target_triple = "i686-linux-android"
+        bin_utils = target_triple
+    elif target == "x86_64":
+        target_triple = "x86_64-linux-android"
+        bin_utils = target_triple
+
+    if sys.platform.startswith("linux"):
+        host_subpath = "linux-x86_64"
+    elif sys.platform.startswith("darwin"):
+        host_subpath = "darwin-x86_64"
+    elif sys.platform.startswith("win"):
+        if platform.machine().endswith("64"):
+            host_subpath = "windows-x86_64"
+        else:
+            host_subpath = "windows"
     ndk_path = os.path.join(opts.android_sdk_root, 'ndk', opts.android_ndk_version)
     toolchain_path = os.path.join(ndk_path, 'toolchains/llvm/prebuilt/linux-x86_64')
-    strip = os.path.join(toolchain_path, 'bin', 'llvm-strip')
+    strip = os.path.join(toolchain_path, 'bin', bin_utils + '-strip')
 
     install_dir = os.path.join(opts.install_dir, '%s-%s-%s' % (product, target, opts.configuration))
     out_libs_dir = os.path.join(install_dir, 'lib')
