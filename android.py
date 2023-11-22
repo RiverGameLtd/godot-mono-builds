@@ -109,16 +109,16 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
     bin_utils_path = os.path.join(toolchain_path, bin_utils, 'bin')
     android_api = env['ANDROID_API_VERSION']
 
-    AR = os.path.join(compiler_path, 'llvm-ar')
+    AR = os.path.join(bin_utils_path, 'ar')
     AS = os.path.join(bin_utils_path, 'as')
-    CC = os.path.join(compiler_path, compiler_wrapper + 'clang')
-    CXX = os.path.join(compiler_path, compiler_wrapper + 'clang++')
-    LD = os.path.join(compiler_path, 'ld')
+    CC = os.path.join(bin_utils_path, 'clang')
+    CXX = os.path.join(bin_utils_path,'clang++')
+    LD = os.path.join(bin_utils_path, 'ld')
     DLLTOOL = ''
-    OBJDUMP = os.path.join(compiler_path, 'llvm-objdump')
-    RANLIB = os.path.join(compiler_path, 'llvm-ranlib')
+    OBJDUMP = os.path.join(bin_utils_path, 'objdump')
+    RANLIB = os.path.join(bin_utils_path, 'ranlib')
     CMAKE = os.path.join(cmake_path, 'cmake')
-    STRIP = os.path.join(compiler_path, 'llvm-strip')
+    STRIP = os.path.join(bin_utils_path, 'strip')
     CPP = CC + ' -E'
     CXXCPP = CXX + ' -E'
 
