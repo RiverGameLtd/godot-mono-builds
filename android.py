@@ -106,19 +106,20 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
     toolchain_path = os.path.join(ndk_path, 'toolchains/llvm/prebuilt', host_subpath)
     compiler_path = os.path.join(toolchain_path, 'bin')
     compiler_wrapper = target_triple + env['ANDROID_API_VERSION'] + '-'
+    tool_wrapper = target_triple + '-'
     bin_utils_path = os.path.join(toolchain_path, bin_utils, 'bin')
     android_api = env['ANDROID_API_VERSION']
 
-    AR = os.path.join(compiler_path, compiler_wrapper + 'ar')
-    AS = os.path.join(compiler_path, compiler_wrapper + 'as')
+    AR = os.path.join(compiler_path, tool_wrapper + 'ar')
+    AS = os.path.join(compiler_path, tool_wrapper + 'as')
     CC = os.path.join(compiler_path, compiler_wrapper + 'clang')
     CXX = os.path.join(compiler_path, compiler_wrapper + 'clang++')
-    LD = os.path.join(compiler_path, compiler_wrapper + 'ld')
+    LD = os.path.join(compiler_path, tool_wrapper + 'ld')
     DLLTOOL = ''
-    OBJDUMP = os.path.join(compiler_path, compiler_wrapper + 'objdump')
-    RANLIB = os.path.join(compiler_path, compiler_wrapper + 'ranlib')
+    OBJDUMP = os.path.join(compiler_path, tool_wrapper + 'objdump')
+    RANLIB = os.path.join(compiler_path, tool_wrapper + 'ranlib')
     CMAKE = os.path.join(cmake_path, 'cmake')
-    STRIP = os.path.join(compiler_path, compiler_wrapper + 'strip')
+    STRIP = os.path.join(compiler_path, tool_wrapper + 'strip')
     CPP = CC + ' -E'
     CXXCPP = CXX + ' -E'
 
