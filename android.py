@@ -106,7 +106,7 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
     toolchain_path = os.path.join(ndk_path, 'toolchains/llvm/prebuilt', host_subpath)
     compiler_path = os.path.join(toolchain_path, 'bin')
     compiler_wrapper = target_triple + env['ANDROID_API_VERSION'] + '-'
-    tool_wrapper = target_triple + '-'
+    tool_wrapper = bin_utils + '-'
     bin_utils_path = os.path.join(toolchain_path, bin_utils, 'bin')
     android_api = env['ANDROID_API_VERSION']
 
