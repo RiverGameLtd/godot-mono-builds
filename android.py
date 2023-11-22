@@ -149,8 +149,7 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
         '-fstack-protector',
         '-DMONODROID=1'
         '-D__ANDROID_API__=' + android_api,
-        '-DGC_ANDROID_LOG',
-        '-DDEBUG_THREADS'
+        '-DGC_ANDROID_LOG'
     ]
 
     CXXFLAGS += [
