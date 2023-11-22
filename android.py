@@ -19,9 +19,9 @@ def get_min_api_version(target) -> str:
     # Minimum API version should be in sync with Godot's platform/android/detect.py.
     # Note: The minimum API version for arm64v8 and x86_64 is '21'
     min_versions = {
-        'armv7': '21',
+        'armv7': '19',
         'arm64v8': '21',
-        'x86': '21',
+        'x86': '19',
         'x86_64': '21',
     }
     return min_versions[target]
@@ -109,16 +109,16 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
     bin_utils_path = os.path.join(toolchain_path, bin_utils, 'bin')
     android_api = env['ANDROID_API_VERSION']
 
-    AR = os.path.join(bin_utils_path, 'ar')
-    AS = os.path.join(bin_utils_path, 'as')
+    AR = os.path.join(compiler_path, compiler_wrapper + 'ar')
+    AS = os.path.join(compiler_path, compiler_wrapper + 'as')
     CC = os.path.join(compiler_path, compiler_wrapper + 'clang')
     CXX = os.path.join(compiler_path, compiler_wrapper + 'clang++')
-    LD = os.path.join(compiler_path, 'ld')
+    LD = os.path.join(compiler_path, compiler_wrapper + 'ld')
     DLLTOOL = ''
-    OBJDUMP = os.path.join(bin_utils_path, 'objdump')
-    RANLIB = os.path.join(bin_utils_path, 'ranlib')
+    OBJDUMP = os.path.join(compiler_path, compiler_wrapper + 'objdump')
+    RANLIB = os.path.join(compiler_path, compiler_wrapper + 'ranlib')
     CMAKE = os.path.join(cmake_path, 'cmake')
-    STRIP = os.path.join(bin_utils_path, 'strip')
+    STRIP = os.path.join(compiler_path, compiler_wrapper + 'strip')
     CPP = CC + ' -E'
     CXXCPP = CXX + ' -E'
 
