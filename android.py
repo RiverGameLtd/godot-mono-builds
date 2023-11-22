@@ -79,15 +79,19 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
     env.update(extra_target_envs[target])
 
     if target == "armv7":
+        tool_root = "arm-linux-androideabi-4.9"
         target_triple = "armv7a-linux-androideabi"
         bin_utils = "arm-linux-androideabi"
     elif target == "arm64v8":
+        tool_root = "aarch64-linux-android-4.9"
         target_triple = "aarch64-linux-android"
         bin_utils = target_triple
     elif target == "x86":
+        tool_root = "x86-4.9"
         target_triple = "i686-linux-android"
         bin_utils = target_triple
     elif target == "x86_64":
+        tool_root = "x86_64-4.9"
         target_triple = "x86_64-linux-android"
         bin_utils = target_triple
 
@@ -103,7 +107,7 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
 
     cmake_path = os.path.join(opts.android_sdk_root, 'cmake', opts.android_cmake_version, 'bin')
     ndk_path = os.environ.get("ANDROID_NDK_ROOT", os.path.join(opts.android_sdk_root, 'ndk', opts.android_ndk_version))
-    toolchain_path = os.path.join(ndk_path, 'toolchains/llvm/prebuilt', host_subpath)
+    toolchain_path = os.path.join(ndk_path, 'toolchains', tool_root, 'prebuilt', host_subpath)
     compiler_path = os.path.join(toolchain_path, 'bin')
     compiler_wrapper = target_triple + env['ANDROID_API_VERSION'] + '-'
     bin_utils_path = os.path.join(toolchain_path, bin_utils, 'bin')
