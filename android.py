@@ -189,11 +189,9 @@ def setup_android_target_template(env: dict, opts: AndroidOpts, target: str):
 
     CONFIGURE_FLAGS += [
         '--with-btls-android-cmake-toolchain=%s/build/cmake/android.toolchain.cmake' % ndk_path,
-        '--with-sigaltstack=yes',
+        '--with-sigaltstack=no',
         '--with-tls=pthread',
-        '--without-ikvm-native',
-        '--disable-cooperative-suspend',
-        '--disable-hybrid-suspend',
+        '--disable-parallel-mark',
         '--disable-crash-reporting',
         '--enable-verify-defines=yes',
         '--enable-no-threads-discovery=yes',
