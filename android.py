@@ -24,6 +24,7 @@ def get_min_api_version(target) -> str:
         'x86': '21',
         'x86_64': '21',
     }
+    
     return min_versions[target]
 
 
