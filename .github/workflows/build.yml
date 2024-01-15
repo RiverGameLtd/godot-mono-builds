@@ -30,9 +30,8 @@ env:
   ANDROID_CMAKE_VERSION: 3.10.2.4988404
   # These should be synced with the Godot repo.
   # platform/android/java/app/config.gradle
-  ANDROID_PLATFORM: android-31
-  ANDROID_API: 19
-  ANDROID_NDK_VERSION: 19.0.5232133
+  ANDROID_PLATFORM: android-30
+  ANDROID_NDK_VERSION: 23.2.8568313
   # platform/iphone/detect.py
   IOS_VERSION_MIN: 10.0
 
